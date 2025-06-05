@@ -1,0 +1,27 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django stuff:
+*.sqlite3
+*.log
+*.pot
+*.pyc
+db.sqlite3
+
+# Secret configuration files
+.env
+*.env
+
+# VS Code and IDEs
+.vscode/
+.idea/
+
+# Static/media (optional)
+staticfiles/
+media/
+
+# Migrations (optional)
+**/migrations/*.py
+!**/migrations/__init__.py

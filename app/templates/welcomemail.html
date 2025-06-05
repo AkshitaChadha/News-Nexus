@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f6f8;
+      margin: 0; padding: 0;
+      color: #333333;
+    }
+    .container {
+      max-width: 600px;
+      background-color: #ffffff;
+      margin: 40px auto;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #2c3e50;
+      text-align: center;
+    }
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    .highlight {
+      color: #007bff;
+      font-weight: bold;
+    }
+    .footer {
+      margin-top: 30px;
+      font-size: 14px;
+      color: #888888;
+      text-align: center;
+    }
+    .button {
+      display: inline-block;
+      margin: 20px 0;
+      padding: 12px 24px;
+      background-color: #007bff;
+      color: white !important;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to News Nexus, {{ username }}! 🎉</h1>
+    <p>We’re thrilled to have you on board.</p>
+    <p>At <span class="highlight">News Nexus</span>, our goal is to keep you informed with the latest news from around the world — tailored just for you.</p>
+    <p>Here’s what you can look forward to:</p>
+    <ul>
+      <li>Curated news from trusted sources</li>
+      <li>Regular updates</li>
+      <li>And much more!</li>
+    </ul>
+    <p>If you have any questions or feedback, feel free to reply to this email. We’re here to help!</p>
+    <p>Stay curious, stay informed.</p>
+    <p><strong>Warm regards,</strong><br>News Nexus</p>
+    
+    
+    
+    <div class="footer">
+      <p>This email was sent to {{ user_email }}. If you didn't sign up for News Nexus, please ignore this message.</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+body{
+  background-image: url("../img/background.jpg");
+  background-size:100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+h2{
+  text-align: center;
+}
+
+.background {
+  display: flex;
+  justify-content: flex-end; 
+  align-items: center; 
+  height: 100vh; 
+  padding: 20px;
+}
+
+
+.login-box {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 500px; 
+  margin-right:250px;
+}
+
+
+.login-box h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.login-box .form-label {
+  font-size: 14px;
+}
+
+.login-box .form-control {
+  border-radius: 4px;
+}
+
+.login-box .btn {
+  width:100%;
+}
+
+.signup_link {
+  margin-top: 20px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.signup_link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.signup_link a:hover {
+  text-decoration: underline;
+}
