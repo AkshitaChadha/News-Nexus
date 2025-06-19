@@ -134,15 +134,21 @@ def scrape_news_categories(url, headers, item_selector, headline_selector, link_
         return []
 
 def scrape_ndtv_national():
-    return scrape_news_categories(
-        url="https://www.ndtv.com/india#pfrom=home-ndtv_mainnavigation",
-        headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'},
-        item_selector='div.newsHdng',
-        headline_selector='h2',
-        link_selector='a',
-        image_selector='img'
-    )
-print(scrape_ndtv_national)
+    try:
+        return scrape_news_categories(
+            url="https://www.ndtv.com/india#pfrom=home-ndtv_mainnavigation",
+            headers={
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+            },
+            item_selector='div.newsHdng',
+            headline_selector='h2',
+            link_selector='a',
+            image_selector='img'
+        )
+    except Exception as e:
+        print("❌ Error in scrape_ndtv_national:", e)
+        return []  # Safe fallback — prevents crashing
+
 def scrape_the_hindu_national():
     return scrape_news_categories(
         url="https://www.thehindu.com/news/national/",
