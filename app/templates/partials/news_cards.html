@@ -1,0 +1,44 @@
+{% load static %}
+{% if news_data %}
+  {% for news in news_data %}
+    <div class="col-md-4 mb-4">
+      <div class="card h-100">
+        <a id="news_link" href="{{ news.url }}" target="_blank" rel="noopener noreferrer">
+          <img src="{{ news.image_url }}" class="card-img-top" alt="News Image">
+          <div class="card-body">
+            <p class="text-muted mb-2">{{ news.source|default:"News Source" }} | {{ news.category|title }}</p>
+            <h5 class="card-title">{{ news.headline }}</h5>
+            {% if news.summary %}
+              <p class="card-text">{{ news.summary|truncatechars:140 }}</p>
+            {% endif %}
+          </div>
+        </a>
+        <div class="card-body news-actions">
+          {% if user.is_authenticated %}
+            <form method="post" action="{% url 'toggle_bookmark' %}" class="me-2">
+              {% csrf_token %}
+              <input type="hidden" name="url" value="{{ news.url }}">
+              <input type="hidden" name="headline" value="{{ news.headline }}">
+              <input type="hidden" name="title" value="{{ news.title|default:news.headline }}">
+              <input type="hidden" name="image_url" value="{{ news.image_url }}">
+              <input type="hidden" name="summary" value="{{ news.summary }}">
+              <input type="hidden" name="source" value="{{ news.source }}">
+              <input type="hidden" name="category" value="{{ news.category }}">
+              <input type="hidden" name="next" value="{{ request.get_full_path }}">
+              <button type="submit" class="btn btn-link p-0 border-0">
+                <i class="fas fa-bookmark icon {% if news.url in bookmarked_urls %}bookmarked{% endif %}" title="Bookmark"></i>
+              </button>
+            </form>
+          {% else %}
+            <a class="me-2" href="{% url 'login' %}?next={{ request.get_full_path|urlencode }}">
+              <i class="fas fa-bookmark icon" title="Login to bookmark"></i>
+            </a>
+          {% endif %}
+          <i class="fas fa-share-alt icon" title="Share" onclick="share('{{ news.full_url|escapejs }}', '{{ news.headline|escapejs }}')"></i>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+{% else %}
+  <p>No news available at the moment. Please check back later.</p>
+{% endif %}

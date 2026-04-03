@@ -1,61 +1,63 @@
-body{
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-image: url("../img/background.jpg");
-  background-size:100%;
+  background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
-h2{
-  text-align: center;
-}
-
-.background {
+.auth-shell {
+  min-height: 100vh;
   display: flex;
-  justify-content: flex-end; 
-  align-items: center; 
-  height: 100vh; 
-  padding: 20px;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 1.5rem 7vw 1.5rem 1.5rem;
 }
-
 
 .login-box {
-  background-color: #fff;
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 500px; 
-  margin-right:250px;
+  width: min(460px, 100%);
+  background: rgba(255, 255, 255, 0.98);
+  color: #17323a;
+  padding: 2rem;
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
 }
-
 
 .login-box h2 {
-  margin-bottom: 20px;
-  font-size: 24px;
+  margin-bottom: 1.25rem;
+  text-align: center;
+  font-size: 2rem;
 }
 
-.login-box .form-label {
-  font-size: 14px;
+.form-label {
+  font-weight: 600;
 }
 
-.login-box .form-control {
-  border-radius: 4px;
+.form-control {
+  min-height: 3rem;
+  border-radius: 14px;
 }
 
-.login-box .btn {
-  width:100%;
+.btn-primary {
+  width: 100%;
+  min-height: 3rem;
+  border-radius: 14px;
 }
 
 .signup_link {
-  margin-top: 20px;
-  font-size: 14px;
+  margin-top: 1rem;
   text-align: center;
 }
 
 .signup_link a {
-  color: #007bff;
   text-decoration: none;
 }
 
-.signup_link a:hover {
-  text-decoration: underline;
+@media (max-width: 900px) {
+  .auth-shell {
+    justify-content: center;
+    padding: 1.25rem;
+  }
 }

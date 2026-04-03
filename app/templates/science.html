@@ -47,28 +47,16 @@
   </div>
 
   <div class="container mt-4">
-    <h1>Science News</h1>
-    <div class="row">
-      {% for news in news_data %}
-      <div class="col-md-4 mb-4">
-        <div class="card">
-          <a id="news_link" href="{{ news.url }}" target="_blank">
-            {% if news.image_url %}
-              <img src="{{ news.image_url }}" class="card-img-top" alt="News Image">
-            {% else %}
-              <img src="{% static 'img/default-image.jpg' %}" class="card-img-top" alt="Default Image">
-            {% endif %}
-            <div class="card-body">
-              <h5 class="card-title">{{ news.headline }}</h5>
-            </div>
-          </a>
-          <div class="card-body news-actions">
-           
-            <i class="fas fa-share-alt icon" title="Share" onclick="share('{{ news.full_url }}', '{{ news.headline }}')"></i>
-          </div>
-        </div>
-      </div>
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-info">{{ message }}</div>
       {% endfor %}
+    {% endif %}
+    <div class="section-header">
+      <h1>Science News</h1>
+    </div>
+    <div class="row">
+      {% include 'partials/news_cards.html' %}
     </div>
   </div>
 

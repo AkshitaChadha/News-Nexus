@@ -2,9 +2,17 @@ services:
   - type: web
     name: news-nexus
     env: python
+    buildCommand: pip install -r requirements.txt && python manage.py collectstatic --noinput
+    startCommand: gunicorn project.wsgi:application
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: project.settings
+  - type: cron
+    name: news-nexus-digest
+    env: python
+    schedule: "0 3 * * *"
     buildCommand: pip install -r requirements.txt
-    python manage.py collectstatic --noinput
-    startCommand: gunicorn projectname.wsgi:application
+    startCommand: python manage.py send_digest_emails
     envVars:
       - key: DJANGO_SETTINGS_MODULE
         value: project.settings

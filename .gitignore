@@ -3,30 +3,29 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-# Virtual environment
+# Virtual environments
+nnenv/
 venv/
+.venv/
+env/
 
-# Django stuff:
+# Django / local database
+db.sqlite3
 *.sqlite3
 *.log
 *.pot
-db.sqlite3
 
 # Secret config files
 .env
 *.env
 
-# VS Code / JetBrains IDEs
+# IDEs
 .vscode/
 .idea/
 
-# Static + media (optional for prod builds)
+# Static + media
 staticfiles/
 media/
-
-# Django migrations
-**/migrations/*.py
-!**/migrations/__init__.py
 
 # Coverage / test / debug
 coverage/
