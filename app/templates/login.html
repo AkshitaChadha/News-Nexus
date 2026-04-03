@@ -11,6 +11,9 @@
 <body>
     <div class="auth-shell">
         <div class="login-box">
+            <div class="auth-actions">
+                <a href="{% url 'home' %}" class="back-link">← Back to Home</a>
+            </div>
             <h2>Login</h2>
             <form method="POST" novalidate>
                 {% csrf_token %}
